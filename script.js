@@ -1,10 +1,14 @@
 const breakpoints = {
-  "1140x720": "The",
-  "1080x700": "question",
-  "960x600": "lies",
-  "800x500": "beneath",
-  "640x480": "your",
-  "540x360": "eyes"
+  "1111x720": "The Answer",
+  "1221x800": "lies",
+  "1331x880": "in the",
+  "1441x960": "place",
+  "1551x1040": "where the", 
+  "1661x1120": "origin of",
+  "1771x1200": "checkered",
+  "1881x1280": "shirts",
+  "1991x1360": "happened "
+  
 };
 
 const revealed = new Set();
