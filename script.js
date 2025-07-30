@@ -8,13 +8,12 @@ const breakpoints = {
   "1771x1200": "checkered",
   "1881x1280": "shirts",
   "1991x1360": "happened "
-  
 };
 
 const revealed = new Set();
 
 function getClosestBreakpoint() {
-  const tolerance = 10; // allow ±10px wiggle room
+  const tolerance = 10;
   const w = window.innerWidth;
   const h = window.innerHeight;
 
@@ -33,9 +32,16 @@ function updateWords() {
   if (key && !revealed.has(key)) {
     revealed.add(key);
     const wordDiv = document.getElementById("revealedWords");
-    wordDiv.innerHTML += breakpoints[key] + " ";
+    if (wordDiv) {
+      wordDiv.innerHTML += breakpoints[key] + " ";
+    } else {
+      console.warn("Could not find #revealedWords");
+    }
   }
 }
 
-window.addEventListener("resize", updateWords);
-window.addEventListener("load", updateWords);
+// Wrap in DOMContentLoaded
+document.addEventListener("DOMContentLoaded", () => {
+  updateWords();
+  window.addEventListener("resize", updateWords);
+});
