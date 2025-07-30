@@ -13,7 +13,7 @@ const breakpoints = {
 const revealed = new Set();
 
 function getClosestBreakpoint() {
-  const tolerance = 10;
+  const tolerance = 150;
   const w = window.innerWidth;
   const h = window.innerHeight;
 
