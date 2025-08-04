@@ -1,13 +1,13 @@
 const breakpoints = {
   "1111x720": "The Answer",
-  "1221x800": "lies",
-  "1331x880": "in the",
-  "1441x960": "place",
-  "1551x1040": "where the", 
-  "1661x1120": "origin of",
-  "1771x1200": "checkered",
-  "1881x1280": "shirts",
-  "1991x1360": "happened "
+  "1221x800": "lies in the",
+  "1331x880": "Shop ",
+  "1441x960": "that has",
+  "1551x1040": "its Roots", 
+  "1661x1120": "to the Place",
+  "1771x1200": "where classical arts",
+  "1881x1280": "meets cinema",
+  "1991x1360": "and coastal beauty"
 };
 
 const revealed = new Set();
