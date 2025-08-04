@@ -11,15 +11,15 @@ const breakpoints = {
 };
 
 const revealed = new Set();
+let lastMatchedKey = null;
 
-function getClosestBreakpoint() {
-  const tolerance = 150;
+function getExactBreakpoint() {
   const w = window.innerWidth;
   const h = window.innerHeight;
 
   for (const key in breakpoints) {
     const [bw, bh] = key.split("x").map(Number);
-    if (Math.abs(bw - w) <= tolerance && Math.abs(bh - h) <= tolerance) {
+    if (bw === w && bh === h) {
       return key;
     }
   }
@@ -28,9 +28,11 @@ function getClosestBreakpoint() {
 }
 
 function updateWords() {
-  const key = getClosestBreakpoint();
-  if (key && !revealed.has(key)) {
+  const key = getExactBreakpoint();
+  if (key && key !== lastMatchedKey && !revealed.has(key)) {
     revealed.add(key);
+    lastMatchedKey = key;
+
     const wordDiv = document.getElementById("revealedWords");
     if (wordDiv) {
       wordDiv.innerHTML += breakpoints[key] + " ";
@@ -40,8 +42,7 @@ function updateWords() {
   }
 }
 
-// Wrap in DOMContentLoaded
 document.addEventListener("DOMContentLoaded", () => {
-  updateWords();
+  // Only respond to actual resizes
   window.addEventListener("resize", updateWords);
 });
