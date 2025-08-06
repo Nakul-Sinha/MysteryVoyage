@@ -1,13 +1,21 @@
 const resolutions = {
-  "1111x720": "VGhlIEFuc3dlcg==",                   // "The Answer"
-  "1221x800": "bGllcyBpbiB0aGU=",                   // "lies in the"
-  "1331x880": "U2hvcCA=",                           // "Shop "
-  "1441x960": "dGhhdCBoYXM=",                       // "that has"
-  "1551x1040": "aXRzIFJvb3Rz",                      // "its Roots"
-  "1661x1120": "dG8gdGhlIFBsYWNl",                  // "to the Place"
-  "1771x1200": "d2hlcmUgY2xhc3NpY2FsIGFydHM=",       // "where classical arts"
-  "1881x1280": "bWVldHMgY2luZW1h",                  // "meets cinema"
-  "1991x1360": "YW5kIGNvYXN0YWwgYmVhdXR5"           // "and coastal beauty"
+  "1111x720": "VGhlIEFuc3dlcg==", 
+  "1221x800": ".",                  // "The Answer"
+  "1331x880": "bGllcyBpbiB0aGU=", 
+  "1441x960": ".",        // "lies in the"
+  "1551x1040": "U2hvcCA=", 
+  "1661x1120": ".",                       // "Shop "
+  "1771x1200": "dGhhdCBoYXM=", 
+  "1881x1280": ".",// "that has"
+  "1991x1360": "aXRzIFJvb3Rz", 
+  "2101x1440": ".",// "its Roots"
+  "2211x1520": "dG8gdGhlIFBsYWNl",   
+  "2321x1600": ".",// "to the Place"
+  "2431x1680": "d2hlcmUgY2xhc3NpY2FsIGFydHM=",
+  "2541x1760": ".",// "where classical arts"
+  "2651x1840": "bWVldHMgY2luZW1h",
+  "2761x1920": ".",// "meets cinema"
+  "2871x2000": "YW5kIGNvYXN0YWwgYmVhdXR5"           // "and coastal beauty"
 };
 
 function getResolutionKey() {
