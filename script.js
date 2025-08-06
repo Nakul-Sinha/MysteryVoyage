@@ -1,41 +1,39 @@
-const clues = {
-  "1111x720": "The Answer",
-  "1221x800": "lies in the",
-  "1331x880": "Shop ",
-  "1441x960": "that has",
-  "1551x1040": "its Roots",
-  "1661x1120": "to the Place",
-  "1771x1200": "where classical arts",
-  "1881x1280": "meets cinema",
-  "1991x1360": "and coastal beauty"
+const resolutions = {
+  "1111x720": "VGhlIEFuc3dlcg==",                   // "The Answer"
+  "1221x800": "bGllcyBpbiB0aGU=",                   // "lies in the"
+  "1331x880": "U2hvcCA=",                           // "Shop "
+  "1441x960": "dGhhdCBoYXM=",                       // "that has"
+  "1551x1040": "aXRzIFJvb3Rz",                      // "its Roots"
+  "1661x1120": "dG8gdGhlIFBsYWNl",                  // "to the Place"
+  "1771x1200": "d2hlcmUgY2xhc3NpY2FsIGFydHM=",       // "where classical arts"
+  "1881x1280": "bWVldHMgY2luZW1h",                  // "meets cinema"
+  "1991x1360": "YW5kIGNvYXN0YWwgYmVhdXR5"           // "and coastal beauty"
 };
 
-function findMatchingKey(width, height) {
-  const tolerance = 10;
-  for (const key in clues) {
-    const [targetW, targetH] = key.split('x').map(Number);
-    if (
-      Math.abs(targetW - width) <= tolerance &&
-      Math.abs(targetH - height) <= tolerance
-    ) {
-      return key;
-    }
-  }
-  return null;
+function getResolutionKey() {
+  return `${window.innerWidth}x${window.innerHeight}`;
 }
 
-function updateClue() {
-  const width = window.innerWidth;
-  const height = window.innerHeight;
-  const matchedKey = findMatchingKey(width, height);
-  const questionEl = document.getElementById('question');
+function decodeBase64(str) {
+  try {
+    return atob(str);
+  } catch (e) {
+    return null;
+  }
+}
 
-  if (matchedKey) {
-    questionEl.textContent = clues[matchedKey];
+function updateMessage() {
+  const key = getResolutionKey();
+  const encoded = resolutions[key];
+  const messageElement = document.getElementById('message');
+
+  if (encoded) {
+    const decoded = decodeBase64(encoded);
+    messageElement.textContent = decoded;
   } else {
-    questionEl.textContent = "Resize the window...";
+    messageElement.textContent = "The site holds no answers. It only reflects.";
   }
 }
 
-window.addEventListener("load", updateClue);
-window.addEventListener("resize", updateClue);
+window.addEventListener('resize', updateMessage);
+window.addEventListener('load', updateMessage);
